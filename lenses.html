@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thin Lenses Class 12 Physics: Lens Formula, Lens Maker Formula, Power of Lens, Sign Convention, Solved Numericals & Live Calculator for CBSE & JEE.">
+    <meta name="keywords" content="lens formula class 12, lens maker formula, power of lens, convex concave lens, ray optics calculator">
+    <title>Thin Lenses Class 12 | Lens Formula Calculator + Numericals | CBSE JEE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><span class="neon-text">OPTIX</span><span style="font-size:13px;color:#777;">PHYSICS</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="mirrors.html">MIRRORS</a></li>
+                <li><a href="lenses.html" class="active">LENSES</a></li>
+                <li><a href="tools.html">TOOLS</a></li>
+            </ul>
+            <button class="neon-btn" onclick="launchConfetti()">LIGHT UP 🔥</button>
+        </div>
+    </nav>
+
+    <section class="hero-small"><h1 class="neon-text">THIN LENSES</h1></section>
+
+    <div class="container">
+        <div class="theory-box">
+            <h2>Lens Formula</h2>
+            <p style="font-size:1.8rem;">\[ \frac{1}{f} = \frac{1}{v} - \frac{1}{u} \]</p>
+            <h2>Lens Maker Formula</h2>
+            <p style="font-size:1.8rem;">\[ \frac{1}{f} = (μ-1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) \]</p>
+            <h2>Power of Lens</h2>
+            <p style="font-size:1.8rem;">P = 1/f (in metre) → Dioptre (D)</p>
+        </div>
+
+        <div class="calculator">
+            <h2>Live Lens Formula Calculator</h2>
+            <div class="input-group">
+                <label>Object Distance u (cm)</label>
+                <input type="number" id="u-lens" value="-25" oninput="calcLens()">
+            </div>
+            <div class="input-group">
+                <label>Focal Length f (cm)</label>
+                <input type="number" id="f-lens" value="20" oninput="calcLens()">
+            </div>
+            <div class="result">
+                <p>v = <span id="v-lens">?</span> cm</p>
+                <p>m = <span id="m-lens">?</span></p>
+                <p id="nature-lens" class="nature"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer><p><a href="index.html">← Back to Home</a> | Optics Physics Class 12</p></footer>
+    <script src="js/main.js"></script>
+    <script>
+        function calcLens() {
+            let u = parseFloat(document.getElementById("u-lens").value);
+            let f = parseFloat(document.getElementById("f-lens").value);
+            if (!u || !f) return;
+            let v = (1 / (1/f - 1/u)).toFixed(2);
+            let m = (-v / u).toFixed(2);
+            document.getElementById("v-lens").textContent = v;
+            document.getElementById("m-lens").textContent = m;
+            document.getElementById("nature-lens").innerHTML = (v > 0) ? "<strong>Real & Inverted 🔥</strong>" : "<strong>Virtual & Erect ✨</strong>";
+        }
+        window.onload = calcLens;
+    </script>
+</body>
+</html>

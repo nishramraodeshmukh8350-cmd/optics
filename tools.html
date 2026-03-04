@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Optics Tools: Power of Lens Calculator, Quick Quiz, MCQs for Class 12 Physics CBSE & JEE. Practice with instant results.">
+    <title>Optics Tools & Quiz | Power of Lens Calculator | CBSE JEE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><span class="neon-text">OPTIX</span><span style="font-size:13px;color:#777;">PHYSICS</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="mirrors.html">MIRRORS</a></li>
+                <li><a href="lenses.html">LENSES</a></li>
+                <li><a href="tools.html" class="active">TOOLS</a></li>
+            </ul>
+            <button class="neon-btn" onclick="launchConfetti()">LIGHT UP 🔥</button>
+        </div>
+    </nav>
+
+    <section class="hero-small"><h1 class="neon-text">TOOLS &amp; QUIZ</h1></section>
+
+    <div class="container">
+        <div class="calculator">
+            <h2>Power of Lens Calculator</h2>
+            <input type="number" id="f-power" placeholder="Focal length in cm" style="width:100%;padding:15px;margin:15px 0;" oninput="calcPower()">
+            <p style="font-size:2rem;">Power P = <span id="power-result" style="color:#00ff9d">?</span> D</p>
+        </div>
+
+        <div class="calculator" style="margin-top:40px;">
+            <h2>Quick Quiz (CBSE Style)</h2>
+            <p id="question">Convex lens ka focal length sign kya hota hai?</p>
+            <button onclick="answerQuiz(true)" style="margin:10px;padding:10px 20px;">Positive (+)</button>
+            <button onclick="answerQuiz(false)" style="margin:10px;padding:10px 20px;">Negative (-)</button>
+            <p id="quiz-result" style="margin-top:20px;font-size:1.4rem;"></p>
+        </div>
+    </div>
+
+    <footer><p><a href="index.html">← Back to Home</a></p></footer>
+    <script src="js/main.js"></script>
+    <script>
+        function calcPower() {
+            let f = parseFloat(document.getElementById("f-power").value);
+            if(f) document.getElementById("power-result").textContent = (100/f).toFixed(2);
+        }
+        function answerQuiz(ans) {
+            if(ans) document.getElementById("quiz-result").innerHTML = "✅ Correct! Convex lens f = Positive";
+            else document.getElementById("quiz-result").innerHTML = "❌ Wrong! Convex lens positive hota hai";
+        }
+    </script>
+</body>
+</html>

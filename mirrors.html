@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spherical Mirrors Class 12 Physics: Mirror Formula, Sign Convention Table, Ray Diagrams, Magnification, Solved Numericals & Live Calculator. CBSE Board & JEE Preparation.">
+    <meta name="keywords" content="mirror formula class 12, concave mirror, convex mirror, sign convention mirrors, ray optics calculator, cbse physics">
+    <title>Spherical Mirrors Class 12 | Mirror Formula Calculator + Numericals | CBSE JEE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><span class="neon-text">OPTIX</span><span style="font-size:13px;color:#777;">PHYSICS</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="mirrors.html" class="active">MIRRORS</a></li>
+                <li><a href="lenses.html">LENSES</a></li>
+                <li><a href="tools.html">TOOLS</a></li>
+            </ul>
+            <button class="neon-btn" onclick="launchConfetti()">LIGHT UP 🔥</button>
+        </div>
+    </nav>
+
+    <section class="hero-small"><h1 class="neon-text">SPHERICAL MIRRORS</h1></section>
+
+    <div class="container">
+        <div class="theory-box">
+            <h2>1. Introduction</h2>
+            <p>Concave mirror (converging) & Convex mirror (diverging). Used in headlights, shaving mirrors, rear-view mirrors.</p>
+
+            <h2>2. Sign Convention (Cartesian) – Most Important for Exams</h2>
+            <table style="width:100%;border-collapse:collapse;margin:20px 0;background:#111;">
+                <tr><th style="padding:12px;border:1px solid #333;">Quantity</th><th style="padding:12px;border:1px solid #333;">Sign</th></tr>
+                <tr><td style="padding:12px;border:1px solid #333;">Object distance (u)</td><td style="padding:12px;border:1px solid #333;">Always Negative</td></tr>
+                <tr><td style="padding:12px;border:1px solid #333;">Focal length (f)</td><td style="padding:12px;border:1px solid #333;">Concave = Negative, Convex = Positive</td></tr>
+                <tr><td style="padding:12px;border:1px solid #333;">Image distance (v)</td><td style="padding:12px;border:1px solid #333;">Real = Negative, Virtual = Positive</td></tr>
+            </table>
+
+            <h2>3. Mirror Formula</h2>
+            <p style="font-size:1.8rem;">\[ \frac{1}{f} = \frac{1}{v} + \frac{1}{u} \]</p>
+
+            <h2>4. Magnification</h2>
+            <p style="font-size:1.8rem;">\[ m = -\frac{v}{u} = \frac{h_i}{h_o} \]</p>
+        </div>
+
+        <!-- LIVE CALCULATOR -->
+        <div class="calculator">
+            <h2>Live Mirror Formula Calculator</h2>
+            <div class="input-group">
+                <label>Object Distance u (cm)</label>
+                <input type="number" id="u" value="-30" oninput="calcMirror()">
+            </div>
+            <div class="input-group">
+                <label>Focal Length f (cm)</label>
+                <input type="number" id="f" value="-20" oninput="calcMirror()">
+            </div>
+            <div class="result">
+                <p>v = <span id="v-result">?</span> cm</p>
+                <p>m = <span id="m-result">?</span></p>
+                <p id="nature" class="nature">Nature will appear here...</p>
+            </div>
+        </div>
+
+        <div class="theory-box">
+            <h2>Solved Numericals (Board Exam Level)</h2>
+            <h3>Example 1:</h3>
+            <p>Object at 30 cm from concave mirror (f = 20 cm). Find v and nature.</p>
+            <p><strong>Ans:</strong> v = -60 cm (Real, Inverted, magnified)</p>
+        </div>
+    </div>
+
+    <footer><p><a href="index.html">← Back to Home</a> | Optics Physics Class 12</p></footer>
+    <script src="js/main.js"></script>
+    <script>
+        function calcMirror() {
+            let u = parseFloat(document.getElementById("u").value);
+            let f = parseFloat(document.getElementById("f").value);
+            if (!u || !f) return;
+            let v = (1 / (1/f - 1/u)).toFixed(2);
+            let m = (-v / u).toFixed(2);
+            document.getElementById("v-result").textContent = v;
+            document.getElementById("m-result").textContent = m;
+            document.getElementById("nature").innerHTML = (v < 0) ? "<strong>Real & Inverted 🔥</strong>" : "<strong>Virtual & Erect ✨</strong>";
+        }
+        window.onload = calcMirror;
+    </script>
+</body>
+</html>
